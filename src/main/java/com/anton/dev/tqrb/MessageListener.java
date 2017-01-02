@@ -31,7 +31,7 @@ public class MessageListener {
       Connection connection = factory.newConnection();
       Channel channel = connection.createChannel();
 
-      channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+      channel.queueDeclare(QUEUE_NAME, true, false, false, null);
       System.out.println(" [*] A la espera de mensajes. Para salir pulse: CTRL+C");
       QueueingConsumer consumer = new QueueingConsumer(channel);
       channel.basicConsume(QUEUE_NAME, true, consumer);
